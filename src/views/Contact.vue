@@ -1,16 +1,20 @@
 <template>
-
+  <div id="contact">
+    <Form/>
+    <Display/>
+  </div>
 </template>
 
-
 <script>
-  export default {
-    name: 'contact',
-      mounted() {
-        console.log('mounted contact component')
-      this.$root.$on('messageChanged', (dataMessage) => {
-        alert("Hello from the main Contact component" + " " + dataMessage);
-      })
-    }
+
+import Form from "@/components/Form"
+import Display from "@/components/Display"
+
+export default {
+  name: "contact",
+  components: {
+    Form,
+    Display
   }
+};
 </script>
