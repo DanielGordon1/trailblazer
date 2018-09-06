@@ -3,7 +3,7 @@
     <hr>
     <h4>This is the name component</h4>
     <h2 :style="{textDecoration: decoration}">{{ username }}</h2>
-    <h2>{{ secondname.split('').reverse().join('') }}</h2>
+    <h2>{{ reversedName }}</h2>
     <h3 class="light">{{ thirdname | fallback | capitalize }}</h3>
   </div>
 
@@ -28,7 +28,11 @@ export default {
     secondname: "Jimmy",
     thirdname: "",
     decoration: "underline",
-    message: ""
+    }
+  },
+  computed: {
+    reversedName: function() {
+      this.secondname.split('').reverse().join('')
     }
   },
   filters: {

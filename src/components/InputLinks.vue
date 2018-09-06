@@ -4,8 +4,8 @@
     <h4>This is the InputLinks component</h4>
     <a class="link" :href="url">{{ linkText }}</a>
     <br>
-    <input v-model="message" placeholder="Enter a message">
-    <p>Message is: {{ message }}</p>
+    <input @change="handleChange()" v-model="dataMessage" placeholder="Enter a message">
+    <p>Message is: {{ dataMessage }}</p>
   </div>
 </template>
 
@@ -16,11 +16,22 @@
 <script>
   export default {
     name: 'InputLinks',
+    props: {
+       message: {
+        type: String,
+        required: true
+      }
+    },
     data() {
       return {
         url: "www.google.com",
         linkText: "clickbait",
-        message: ""
+        dataMessage: this.message
+      }
+    },
+    methods: {
+      handleChange: function() {
+        this.$emit('messageChangedInChild', this.dataMessage)
       }
     }
   }
