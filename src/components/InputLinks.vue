@@ -32,6 +32,8 @@
     methods: {
       handleChange: function() {
         this.$emit('messageChangedInChild', this.dataMessage)
+        this.$root.$emit('messageChanged', this.dataMessage)
+        console.log('sending message')
       }
     }
   }

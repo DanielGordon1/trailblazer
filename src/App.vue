@@ -9,6 +9,17 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'App',
+  mounted() {
+    this.$root.$on('messageChanged', (dataMessage) => {
+      alert("Hello from the main App component" + " " + dataMessage);
+    })
+  }
+}
+</script>
+
 <style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
